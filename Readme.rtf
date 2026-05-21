@@ -1,0 +1,54 @@
+{\rtf1\ansi\ansicpg936\cocoartf2870
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww14260\viewh12140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # GNN AGENT\
+\
+## Overview\
+\
+Supply-demand mismatch is a critical challenge in supply chain management, particularly for Small and Medium-sized Enterprises (SMEs) lacking systematic records. \
+\
+This repository provides the official implementation of our proposed dual-framework approach. To ensure clarity, the codebase is explicitly divided into two major components:\
+1. **Graph Inference Component:** A production-function-constrained Graph Machine Learning (GML) model that infers unobserved firm-level inventory changes from supply chain networks.\
+2. **Econometric Agent Component:** A multi-agent framework that activates diverse econometric models (Spatial, GMM, DID, Cross-lag, etc.) to validate the GML predictions strictly against economic theories.\
+\
+## Repository Structure\
+\
+```text\
+.\
+\uc0\u9500 \u9472 \u9472  Graph_Inference_Model/              # Part 1: GNNs\
+\uc0\u9474    \u9500 \u9472 \u9472  best_model_run.py               # Script to execute the best-performing graph model\
+\uc0\u9474    \u9500 \u9472 \u9472  run_code_grid.py                # Script for hyperparameter grid search and training\
+\uc0\u9474    \u9492 \u9472 \u9472  data/                           # Desensitized supply chain topology and attributes\
+\uc0\u9474        \u9500 \u9472 \u9472  company_inventory.csv       # (Desensitized sample)\
+\uc0\u9474        \u9500 \u9472 \u9472  GICS_code.csv               # Industry classification codes\
+\uc0\u9474        \u9500 \u9472 \u9472  industry_class.csv          \
+\uc0\u9474        \u9492 \u9472 \u9472  supply_chain_trade.csv      # Network transaction linkages\
+\uc0\u9474 \
+\uc0\u9500 \u9472 \u9472  Econometric_Agent/                  # Part 2: Multi-Agent Validation Framework\
+\uc0\u9474    \u9500 \u9472 \u9472  app/\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  main.py                     # Agent initialization and entry point\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  schemas.py                  # Data structures and prompt schemas\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  skills/                     # Econometric validation skills invoked by the agent\
+\uc0\u9474    \u9474    \u9474    \u9500 \u9472 \u9472  skill_model_cross_lag.py\
+\uc0\u9474    \u9474    \u9474    \u9500 \u9472 \u9472  skill_model_did.py\
+\uc0\u9474    \u9474    \u9474    \u9500 \u9472 \u9472  skill_model_forecast.py\
+\uc0\u9474    \u9474    \u9474    \u9500 \u9472 \u9472  skill_model_gmm.py\
+\uc0\u9474    \u9474    \u9474    \u9500 \u9472 \u9472  skill_model_spatial.py\
+\uc0\u9474    \u9474    \u9474    \u9500 \u9472 \u9472  skill_model_synthesis.py\
+\uc0\u9474    \u9474    \u9474    \u9500 \u9472 \u9472  skill_data_inventory.py\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  skill_data_io.py\
+\uc0\u9474    \u9474    \u9492 \u9472 \u9472  utils/                      # Helper functions\
+\uc0\u9474    \u9500 \u9472 \u9472  batch_run.py                    # Script for automated batch validation\
+\uc0\u9474    \u9500 \u9472 \u9472  combine_consensus_plot.py       # Generates agent consensus visualizations\
+\uc0\u9474    \u9492 \u9472 \u9472  data/                           # Processed data for econometric validation\
+\uc0\u9474        \u9500 \u9472 \u9472  inventory_difference.csv    # Baseline/Inferred differences\
+\uc0\u9474        \u9500 \u9472 \u9472  IO_Matrix_21H2.csv          # Input-Output matrices across periods\
+\uc0\u9474        \u9500 \u9472 \u9472  IO_Matrix_22H1.csv\
+\uc0\u9474        \u9500 \u9472 \u9472  IO_Matrix_22H2.csv\
+\uc0\u9474        \u9492 \u9472 \u9472  IO_Matrix_23H1.csv\
+\uc0\u9474 \
+\uc0\u9492 \u9472 \u9472  requirements.txt                    # Project dependencies}
