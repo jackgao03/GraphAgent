@@ -5,7 +5,7 @@
 Supply-demand mismatch is a critical challenge in supply chain management, particularly for Small and Medium-sized Enterprises (SMEs) lacking systematic records. 
 
 This repository provides the official implementation of our proposed dual-framework approach. To ensure clarity, the codebase is explicitly divided into two major components:
-1. **Graph Inference Component:** A production-function-constrained Graph Machine Learning (GML) model that infers unobserved firm-level inventory changes from supply chain networks.
+1. **Graph Inference Component:** A production-function-constrained Graph Machine Learning model that infers unobserved firm-level inventory changes from supply chain networks.
 2. **Econometric Agent Component:** A multi-agent framework that activates diverse econometric models (Spatial, GMM, DID, Cross-lag, etc.) to validate the GML predictions strictly against economic theories.
 
 ## Repository Structure
